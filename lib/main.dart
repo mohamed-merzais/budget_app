@@ -10,7 +10,7 @@ var passwordController = TextEditingController();
 //used to store errors to be then printed using a snackbar
 var error = StringBuffer();
 //used for eye icon to view pw
-bool pwVisibility = true;
+bool _pwVisibility = true;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -73,11 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   key: const ValueKey("Password"),
                   textAlign: TextAlign.left,
-                  obscureText: true,
-                  decoration: const InputDecoration(
+                  obscureText: _pwVisibility,
+                  decoration:  InputDecoration(
                       hintText: " Password ",
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: InkWell(
+                        onTap: _togglePasswordView,
                         child: Icon(Icons.visibility),
                       )),
                   controller: passwordController,
@@ -114,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextButton(
                     onPressed: () async {
                       try {
-                        //stores email and pw as credentials. then checks to see if is correct
+                        //store email and pw as credentials. then checks to see if is correct
                         var credential = await FirebaseAuth.instance
                             .signInWithEmailAndPassword(
                           email: emailController.text,
@@ -143,8 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       error.clear();
-                      }
-                      
+                      }   
                     },
                     child: const Text(
                       'Login',
@@ -171,5 +171,16 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ));
+        
   }
+  void _togglePasswordView() {
+    if (_pwVisibility == true) {
+      _pwVisibility = false;
+    } else {
+      _pwVisibility = true;
+    }
+    setState(() {});
+  }
+  //This is a function to check if the user has toggled the password reveal icon 
+  
 }
