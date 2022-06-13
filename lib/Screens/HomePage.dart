@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:budget_app/Screens/Budget.dart';
+import 'package:budget_app/Screens/Calander.dart';
 import 'package:budget_app/Screens/Daily.dart';
 import 'package:budget_app/Screens/SignUpScreen.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
   //list of pages user is able to navigate between
   List<Widget> pages = [
-    const Daily(),
+    const Calander(),
     const Stats(),
     const Budget(),
-    const Budget()
+    const Daily()
   ];
 
   @override

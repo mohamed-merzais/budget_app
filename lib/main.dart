@@ -76,10 +76,10 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: _pwVisibility,
                   decoration:  InputDecoration(
                       hintText: " Password ",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffixIcon: InkWell(
                         onTap: _togglePasswordView,
-                        child: Icon(Icons.visibility),
+                        child: const Icon(Icons.visibility),
                       )),
                   controller: passwordController,
                 ),
