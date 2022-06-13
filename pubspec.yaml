@@ -37,6 +37,7 @@ dependencies:
   animated_bottom_navigation_bar: ^0.3.2
   ionicons: ^0.1.2
   syncfusion_flutter_pdf: ^20.1.59-beta
+  syncfusion_flutter_calendar: ^20.1.59
 
 dev_dependencies:
   flutter_test:
