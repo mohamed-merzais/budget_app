@@ -1,10 +1,23 @@
 //show calander along with income /outgoings
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import './TransactionList.dart';//imports the transaction list
+import './TransactionList.dart'; //imports the transaction list
 
 class Transactions extends StatelessWidget {
-  final List<TransactionList> transactions = []; //var that holds list of transactions
+  final List<TransactionList> transactions = [
+    TransactionList(
+      id: "t1",
+      title: "hello",
+      amount: 69.69,
+      date: DateTime.now(),
+    ),
+    TransactionList(
+      id: "t2",
+      title: "groceries",
+      amount: 15.23,
+      date: DateTime.now(),
+    ),
+  ]; //var that holds list of transactions
 
   Transactions({Key? key}) : super(key: key);
 
@@ -29,9 +42,14 @@ class Transactions extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Card(
-            color: Colors.red,
-            child: Text('list of tx'),
+          Column(//each transaction tile
+            children: transactions.map((tx) {
+              //tx is individual transactin
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
+            //returns each transaction as a list
           )
         ],
       ),
