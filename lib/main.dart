@@ -137,13 +137,14 @@ class _LoginPageState extends State<LoginPage> {
                           error.write('Wrong password provided for that user');
                         }
                         print(error);
-                      }
-                      //print error to snackbar
+                        //print error to snackbar
                       final snackBar = SnackBar(
                         content: Text(error.toString()),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       error.clear();
+                      }
+                      
                     },
                     child: const Text(
                       'Login',
