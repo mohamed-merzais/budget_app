@@ -42,12 +42,50 @@ class Transactions extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Column(//each transaction tile
+          Column(
+            //each transaction tile
+
             children: transactions.map((tx) {
               //tx is individual transactin
               return Card(
-                child: Text(tx.title),
-              );
+
+                  //each transaction with price date and name
+                  child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 15), //spacing around price
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.purple,
+                      width: 2,
+                    )), //decorating the container(price)
+                    padding: EdgeInsets.all(10), //space between border and text
+                    child: Text(
+                      //contains price text
+                      '£ ${tx.amount}',//easier way to combine a text (string interpulation sytntax) no need for .toString either
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.purple, fontSize: 16),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment:MainAxisAlignment.spaceEvenly, // y axis on all text in column
+                    crossAxisAlignment: CrossAxisAlignment.start,//x axis on all text in column
+                    children: <Widget>[
+                      //contains date and title
+                      Container(
+                          child: Text(
+                        tx.title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.black,fontSize: 16),
+                      ),), //Transaction title
+                      Text(tx.date.toString(),style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.grey,fontSize: 12,
+                      ),),//transaction date
+                    ],
+                  ),
+                ],
+              ));
             }).toList(),
             //returns each transaction as a list
           )

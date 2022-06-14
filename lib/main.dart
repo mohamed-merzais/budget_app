@@ -2,7 +2,7 @@ import 'package:budget_app/Screen/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'Screens/SignUpScreen.dart';
+import 'Screen/SignUpScreen.dart';
 
 //used to control the email and pw
 var emailController = TextEditingController();
