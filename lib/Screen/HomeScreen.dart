@@ -2,7 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:budget_app/Screens/Budget.dart';
 import 'package:budget_app/Screen/Transactions.dart';
 import 'package:budget_app/Screens/Daily.dart';
-import 'package:budget_app/Screen/SignUpScreen.dart';
+import 'package:budget_app/Screens/Stats.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../Screens/Stats.dart';

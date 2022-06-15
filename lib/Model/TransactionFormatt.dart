@@ -1,12 +1,12 @@
 // ignore: empty_constructor_bodies
-class TransactionList {
+class TransactionFormatt {
   //this is what each transaction will contain.
   String id;
   String title;
   double amount;
   DateTime date;
 
-  TransactionList(
+  TransactionFormatt(
       {required this.id,
       required this.amount,
       required this.date,

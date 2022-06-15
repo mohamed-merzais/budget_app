@@ -1,23 +1,14 @@
 //show calander along with income /outgoings
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable
+import 'package:budget_app/widget/user_Transactions.dart';
+
 import 'package:flutter/material.dart';
-import './TransactionList.dart'; //imports the transaction list
 
 class Transactions extends StatelessWidget {
-  final List<TransactionList> transactions = [
-    TransactionList(
-      id: "t1",
-      title: "hello",
-      amount: 69.69,
-      date: DateTime.now(),
-    ),
-    TransactionList(
-      id: "t2",
-      title: "groceries",
-      amount: 15.23,
-      date: DateTime.now(),
-    ),
-  ]; //var that holds list of transactions
+  //statless means cant change variables and will never be reflected on the ui
+
+  String titleInput = ''; //store title
+  String amountInput = ''; //store amount
 
   Transactions({Key? key}) : super(key: key);
 
@@ -29,7 +20,7 @@ class Transactions extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment:
-            MainAxisAlignment.spaceEvenly, //spaces the height evenly
+            MainAxisAlignment.start, //spaces the height to the top
         crossAxisAlignment: CrossAxisAlignment.stretch, //
         children: <Widget>[
           Container(
@@ -41,54 +32,9 @@ class Transactions extends StatelessWidget {
               child: Text('chart!'),
               elevation: 5,
             ),
-          ),
-          Column(
-            //each transaction tile
-
-            children: transactions.map((tx) {
-              //tx is individual transactin
-              return Card(
-
-                  //each transaction with price date and name
-                  child: Row(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15), //spacing around price
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                      color: Colors.purple,
-                      width: 2,
-                    )), //decorating the container(price)
-                    padding: EdgeInsets.all(10), //space between border and text
-                    child: Text(
-                      //contains price text
-                      '£ ${tx.amount}',//easier way to combine a text (string interpulation sytntax) no need for .toString either
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.purple, fontSize: 16),
-                    ),
-                  ),
-                  Column(
-                    mainAxisAlignment:MainAxisAlignment.spaceEvenly, // y axis on all text in column
-                    crossAxisAlignment: CrossAxisAlignment.start,//x axis on all text in column
-                    children: <Widget>[
-                      //contains date and title
-                      Container(
-                          child: Text(
-                        tx.title,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black,fontSize: 16),
-                      ),), //Transaction title
-                      Text(tx.date.toString(),style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.grey,fontSize: 12,
-                      ),),//transaction date
-                    ],
-                  ),
-                ],
-              ));
-            }).toList(),
-            //returns each transaction as a list
-          )
+          ), //chart
+          //below is the input for user
+          UserTransactions(),//shows the users transactions and input field 
         ],
       ),
     );
