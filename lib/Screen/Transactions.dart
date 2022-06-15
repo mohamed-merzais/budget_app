@@ -14,24 +14,26 @@ class Transactions extends StatelessWidget {
       appBar: AppBar(
         title: Text("Transaction"),
       ),
-      body: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.start, //spaces the height to the top
-        crossAxisAlignment: CrossAxisAlignment.stretch, //
-        children: <Widget>[
-          Container(
-            //card is wrapped around containe so it uses container sizing
-            width: double.infinity, //takes up entire width
-            color: Colors.black,
-            child: Card(
-              color: Colors.blue,
-              child: Text('chart!'),
-              elevation: 5,
-            ),
-          ), //chart
-          //below is the input for user
-          UserTransactions(),//shows the users transactions and input field 
-        ],
+      body: SingleChildScrollView(//allows page to be scrollable
+        child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.start, //spaces the height to the top
+          crossAxisAlignment: CrossAxisAlignment.stretch, //
+          children: <Widget>[
+            Container(
+              //card is wrapped around containe so it uses container sizing
+              width: double.infinity, //takes up entire width
+              color: Colors.black,
+              child: Card(
+                color: Colors.blue,
+                child: Text('chart!'),
+                elevation: 5,
+              ),
+            ), //chart
+            //below is the input for user
+            UserTransactions(),//shows the users transactions and input field 
+          ],
+        ),
       ),
     );
   }
