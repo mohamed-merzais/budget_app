@@ -4,13 +4,11 @@ import 'Transaction_List.dart';
 import 'new_Transaction.dart';
 
 class UserTransactions extends StatefulWidget {
-
   @override
- _UserTransactionsState createState() => _UserTransactionsState();
+  _UserTransactionsState createState() => _UserTransactionsState();
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
-
   final List<TransactionFormatt> _userTransactions = [
     TransactionFormatt(
       id: "t1",
@@ -25,13 +23,12 @@ class _UserTransactionsState extends State<UserTransactions> {
       date: DateTime.now(),
     ),
   ];
-  void _addNewTransaction(String txTitle, double txAmount){
-   final newTx = TransactionFormatt(
-    amount : txAmount,
-    title:txTitle, 
-    
-    date: DateTime.now(),
-    id: DateTime.now().toString(),
+  void _addNewTransaction(String txTitle, double txAmount) {
+    final newTx = TransactionFormatt(
+      amount: txAmount,
+      title: txTitle,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
     );
 
     setState(() {
@@ -45,7 +42,8 @@ class _UserTransactionsState extends State<UserTransactions> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        newTransaction(_addNewTransaction),//passes the new transaction to the newTrnsavtioon page to access private method
+        newTransaction(
+            _addNewTransaction), //passes the new transaction to the newTrnsavtioon page to access private method
         TransactionList(_userTransactions),
       ],
     );

@@ -14,7 +14,7 @@ class Transactions extends StatelessWidget {
       appBar: AppBar(
         title: Text("Transaction"),
       ),
-      body: SingleChildScrollView(//allows page to be scrollable
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment:
               MainAxisAlignment.start, //spaces the height to the top
@@ -31,7 +31,7 @@ class Transactions extends StatelessWidget {
               ),
             ), //chart
             //below is the input for user
-            UserTransactions(),//shows the users transactions and input field 
+            UserTransactions(), //shows the users transactions and input field
           ],
         ),
       ),
