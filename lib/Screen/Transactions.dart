@@ -6,10 +6,6 @@ import 'package:flutter/material.dart';
 
 class Transactions extends StatelessWidget {
   //statless means cant change variables and will never be reflected on the ui
-
-  String titleInput = ''; //store title
-  String amountInput = ''; //store amount
-
   Transactions({Key? key}) : super(key: key);
 
   @override

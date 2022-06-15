@@ -1,19 +1,12 @@
-//contains the new_transaction widget and the transactions widget
-// ignore_for_file: prefer_const_constructors
-
-import 'package:budget_app/Screen/Transactions.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import '../Model/TransactionFormatt.dart';
 import 'Transaction_List.dart';
 import 'new_Transaction.dart';
 
 class UserTransactions extends StatefulWidget {
-  const UserTransactions({Key? key}) : super(key: key);
 
   @override
-  State<UserTransactions> createState() => _UserTransactionsState();
+ _UserTransactionsState createState() => _UserTransactionsState();
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
@@ -34,10 +27,12 @@ class _UserTransactionsState extends State<UserTransactions> {
   ];
   void _addNewTransaction(String txTitle, double txAmount){
    final newTx = TransactionFormatt(
-    title:txTitle, 
     amount : txAmount,
+    title:txTitle, 
+    
     date: DateTime.now(),
-    id: DateTime.now().toString());
+    id: DateTime.now().toString(),
+    );
 
     setState(() {
       _userTransactions.add(newTx);

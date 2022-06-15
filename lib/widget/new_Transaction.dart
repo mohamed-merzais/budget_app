@@ -2,12 +2,14 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:intl/date_time_patterns.dart';
 
 class newTransaction extends StatelessWidget {
   final Function addTx;
-  var amountInputController = TextEditingController();
-  var titleInputController = TextEditingController();
-  newTransaction(this.addTx, {Key? key}) : super(key: key); //passes new transaction as parameter
+  final amountInputController = TextEditingController();//stores users amount
+  final titleInputController = TextEditingController();//stores users transaction title
+
+  newTransaction(this.addTx);
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +22,22 @@ class newTransaction extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end, //moves button to right
           children: <Widget>[
             TextField(
-                onChanged: (val) {
-                  amountInputController = val as TextEditingController;
-                }, //checks to see if text is changed and sets ti to the var
+                 controller: titleInputController,
                 decoration:
                     InputDecoration(labelText: 'Enter title')), //input title
             TextField(
-                onChanged: (val) {
-                  titleInputController = val as TextEditingController;
-                }, //checks to see if text is changed and sets ti to the var title
+                controller: amountInputController,
                 decoration: InputDecoration(
                     labelText: 'Enter amount')), //input £ amount
             // ignore: deprecated_member_use
             FlatButton(
               onPressed: () {
-                addTx(titleInputController.text,
-                    double.parse(amountInputController.text),);
+                addTx(
+                titleInputController.text, 
+                double.parse(amountInputController.text),
+                // date: DateTime.now(),
+                // id: DateTime.now().toString(),
+                );
               },
               child: Text("Add Transaction"),
               textColor: Colors.purple,
