@@ -1,15 +1,12 @@
-// ignore_for_file: prefer_const_constructors
-//This stores the transactions and the display panel aka how it looks
-
 import 'package:budget_app/Model/TransactionFormatt.dart';
 import 'package:flutter/material.dart';
 import '../Model/TransactionFormatt.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
-  
-   final List<TransactionFormatt> transactions;
-   TransactionList(this.transactions);
+  final List<TransactionFormatt> transactions;
+   
+    TransactionList(this.transactions);
 
   @override
   Widget build(BuildContext context) {
